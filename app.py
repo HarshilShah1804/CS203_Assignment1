@@ -43,6 +43,22 @@ def save_courses(data):
     with open(COURSE_FILE, 'w') as file:
         json.dump(courses, file, indent=4)
 
+def validate_course(data):
+    """Validate course data to check if the required fields are empty"""
+    error_fields = ['code', 'name', 'instructor']
+    warning_fields = ['semester', 'schedule', 'classroom', 'prerequisites', 'grading', 'description']
+    for filed in error_fields:
+        if not data[filed].strip():
+            flash(f"Error: '{filed}' field is required!", "error")
+            return False
+    for filed in warning_fields:
+        if data[filed].strip():
+            warning_fields.remove(filed)
+    if warning_fields:
+        warning_fields_str = ', '.join(warning_fields)
+        flash(f"Warning: '{warning_fields_str}' field is empty", "warning")
+        return "warning"
+    return True
 
 # Routes
 @app.route('/')
@@ -70,6 +86,8 @@ def add_course():
             'grading': request.form['grading'],
             'description': request.form['description']
         }
+        if (validate_course(course) == False):
+            return render_template('add_course.html', course=course)
         save_courses(course)
         flash(f"Course '{course['name']}' added successfully!", "success")
         return redirect(url_for('course_catalog'))
@@ -85,6 +103,9 @@ def course_details(code):
         return redirect(url_for('course_catalog'))
     return render_template('course_details.html', course=course)
 
+@app.route('/contact')
+def contact():
+    return render_template('contact.html')
 
 @app.route("/manual-trace")
 def manual_trace():
