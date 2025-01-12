@@ -53,6 +53,35 @@ logger.setLevel(logging.INFO)
 logger.addHandler(json_file_handler)
 logger.addHandler(stream_handler)
 
+def log_request(level, event, message, code=None):
+    if (level=="info"):
+        logger.info(json.dumps({
+            "level:": "INFO",
+            "event": event,
+            "http.method": request.method,
+            "http.url": request.url,
+            "user.ip": request.remote_addr,
+            "message": message
+            }, indent=4))
+    elif (level=="error"):
+        logger.error(json.dumps({
+            "level:": "ERROR",
+            "event": event,
+            "http.method": request.method,
+            "http.url": request.url,
+            "user.ip": request.remote_addr,
+            "message": message
+            }, indent=4))
+    elif (level=="warning"):
+        logger.warning(json.dumps({
+            "level:": "WARNING",
+            "event": event,
+            "http.method": request.method,
+            "http.url": request.url,
+            "user.ip": request.remote_addr,
+            "message": message
+            }, indent=4))
+
 # Utility Functions
 def load_courses():
     """Load courses from the JSON file."""
@@ -86,192 +115,105 @@ def validate_course(data):
         return "warning"
     return True
 
+def add_trace_context(span_name, load_courses_ = False, course_code = None, error_message = None, warning_message = None):   
+    with tracer.start_as_current_span(span_name, kind=SpanKind.SERVER) as span:
+        span.set_attribute("http.method", request.method)
+        span.set_attribute("http.url", request.url)
+        span.set_attribute("user.ip", request.remote_addr)
+        if load_courses_:
+            courses = load_courses()
+            span.set_attribute("courses.count", len(courses))
+        if course_code:
+            span.set_attribute("course.code", course_code)
+        if error_message:
+            span.set_attribute("error.message", error_message)
+            span.set_status(Status(StatusCode.ERROR, error_message))
+        if warning_message:
+            span.set_attribute("warning.message", warning_message)
+            span.add_event("Potential issue detected", {
+                "severity": "warning",
+                "details": "This is a potential issue, but the operation succeeded."
+            })
+
+
 # Routes
 @app.route('/')
 def index():
-    logger.info(json.dumps({
-        "level:": "INFO",
-        "event": "render-index",
-        "http.method": request.method,
-        "http.url": request.url,
-        "user.ip": request.remote_addr
-        }, indent=4))
+    log_request("info", "render-index", "Home page rendered successfully")
+    add_trace_context("render-index")
     return render_template('index.html')
 
 @app.route('/catalog', methods=['GET', 'POST'])
 def course_catalog():
-    with tracer.start_as_current_span("render-course-catalog", kind=SpanKind.SERVER) as span:
-        span.set_attribute("http.method", request.method)
-        span.set_attribute("http.url", request.url)
-        span.set_attribute("user.ip", request.remote_addr)
-        course_load_start_time = time.time()
-        courses = load_courses()
-        print(len(courses))
-        course_load_end_time = time.time()
-        span.set_attribute("course_loading.time", course_load_end_time - course_load_start_time)
-        page_render_start_time = time.time()
-        span.set_attribute("courses.count", len(courses))
-        response = render_template('course_catalog.html', courses=courses)
-        page_render_end_time = time.time()
-        span.set_attribute("processing.time", page_render_end_time - page_render_start_time)
-    logger.info(json.dumps({
-        "level:": "INFO",
-        "event": "render-course-catalog",
-        "http.method": request.method,
-        "http.url": request.url,
-        "user.ip": request.remote_addr
-        }, indent=4))
-    return response
+    courses = load_courses()
+    add_trace_context("render-course-catalog", load_courses_=True)
+    log_request("info", "render-course-catalog", "Course catalog page rendered successfully")
+    return render_template('course_catalog.html', courses=courses)
 
 
 @app.route('/add_course', methods=['GET', 'POST'])
 def add_course():
         if request.method == 'POST':
-            with tracer.start_as_current_span("add-course", kind=SpanKind.SERVER) as span:
-                span.set_attribute("http.method", request.method)
-                span.set_attribute("http.url", request.url)
-                span.set_attribute("user.ip", request.remote_addr)
-                course = {
-                    'code': request.form['code'],
-                    'name': request.form['name'],
-                    'instructor': request.form['instructor'],
-                    'semester': request.form['semester'],
-                    'schedule': request.form['schedule'],
-                    'classroom': request.form['classroom'],
-                    'prerequisites': request.form['prerequisites'],
-                    'grading': request.form['grading'],
-                    'description': request.form['description']
-                }
-                validation_start_time = time.time()
-                validation = validate_course(course)
-                validation_end_time = time.time()
-                span.set_attribute("validation.time", validation_end_time - validation_start_time)
-                if (validation == False):
-                    logger.error(json.dumps({
-                        "level:": "ERROR",
-                        "event": "course-add-error",
-                        "error.message": "Required fields are empty",
-                        "http.method": request.method,
-                        "http.url": request.url,
-                        "user.ip": request.remote_addr
-                        }, indent=4))
-                    span.set_attribute("error.message", "Required fields are empty")
-                    span.set_status(Status(StatusCode.ERROR, "Required fields are empty"))
-                    return render_template('add_course.html', course=course)
-                elif (validation == "warning"):
-                    logger.warning(json.dumps({
-                        "level:": "WARNING",
-                        "event": "course-add-warning",
-                        "warning.message": "Some fields are empty",
-                        "http.method": request.method,
-                        "http.url": request.url,
-                        "user.ip": request.remote_addr
-                        }, indent=4))
-                    span.set_attribute("course.code", course['code'])
-                    span.set_attribute("warning.message", "Some fields are empty")
-                    span.add_event("Potential issue detected", {
-                        "severity": "warning",
-                        "details": "This is a potential issue, but the operation succeeded."
-                    })
-                span.set_attribute("course.code", course['code'])
-                save_start_time = time.time()
+            course = {
+                'code': request.form['code'],
+                'name': request.form['name'],
+                'instructor': request.form['instructor'],
+                'semester': request.form['semester'],
+                'schedule': request.form['schedule'],
+                'classroom': request.form['classroom'],
+                'prerequisites': request.form['prerequisites'],
+                'grading': request.form['grading'],
+                'description': request.form['description']
+            }
+            validation = validate_course(course)
+            if (validation == False):
+                log_request("error", "course-add-error", "Required fields are empty")
+                add_trace_context("add-course", course_code=course['code'], error_message="Required fields are empty")
+                return render_template('add_course.html', course=course)
+            elif (validation == "warning"):
+                log_request("warning", "course-add-warning", "Some fields are empty")
+                add_trace_context("add-course", course_code=course['code'], warning_message="Some fields are empty")
+            else:
+                add_trace_context("add-course", course_code=course['code'])
                 save_courses(course)
-                save_end_time = time.time()
-                span.set_attribute("save.time", save_end_time - save_start_time)
-                logger.info(json.dumps({
-                    "level:": "INFO",
-                    "event": "course-added",
-                    "http.method": request.method,
-                    "http.url": request.url,
-                    "user.ip": request.remote_addr,
-                    "course.code": course['code'],
-                    "course.name": course['name']
-                    }, indent=4))
-                span.set_status(Status(StatusCode.OK, f"Course '{course['name']}' added successfully"))
-                flash(f"Course '{course['name']}' added successfully!", "success")
-                return redirect(url_for('course_catalog'))
+            log_request("info", "course-added", f"Course '{course['code']}' '{course['name']}' added successfully")
+            flash(f"Course '{course['name']}' added successfully!", "success")
+            return redirect(url_for('course_catalog'))
         else:
-            with tracer.start_as_current_span("render-add-course", kind=SpanKind.SERVER) as span:
-                span.set_attribute("http.method", request.method)
-                span.set_attribute("http.url", request.url)
-                span.set_attribute("user.ip", request.remote_addr)
-                return render_template('add_course.html')
+            add_trace_context("render-add-course")
+            return render_template('add_course.html')
             
 @app.route('/delete_course/<code>')
 def delete_course(code):
+    print(code)
     courses = load_courses()
     courses = [course for course in courses if course['code'] != code]
     with open(COURSE_FILE, 'w') as file:
         json.dump(courses, file, indent=4)
-    logger.info(json.dumps({
-        "level:": "INFO",
-        "event": "course-deleted",
-        "http.method": request.method,
-        "http.url": request.url,
-        "user.ip": request.remote_addr,
-        "course.code": code
-        }, indent=4))
+    log_request("info", "course-deleted", f"Course with code '{code}' deleted successfully")
+    add_trace_context("delete-course", course_code=code)
     flash(f"Course with code '{code}' deleted successfully!", "success")
+    return redirect(url_for('course_catalog'))
 
 
 @app.route('/course/<code>')
 def course_details(code):
-    with tracer.start_as_current_span("view-course-details", kind=SpanKind.SERVER) as span:
-        courses = load_courses()
-        course = next((course for course in courses if course['code'] == code), None)
-        if not course:
-            flash(f"No course found with code '{code}'.", "error")
-            logger.error(json.dumps({
-                "level:": "ERROR",
-                "event": "view-course-details-error",
-                "error.message": f"No course found with code '{code}'.",
-                "http.method": request.method,
-                "http.url": request.url,
-                "user.ip": request.remote_addr
-                }, indent=4))
-            span.set_attribute("error.message", f"No course found with code '{code}'.")
-            span.set_attribute("http.method", request.method)
-            span.set_attribute("http.url", request.url)
-            span.set_attribute("user.ip", request.remote_addr)
-            span.set_attribute("course.code", code) 
-            span.set_status(Status(StatusCode.ERROR, f"No course found with code '{code}'."))
-            return redirect(url_for('course_catalog'))
-        logger.info(json.dumps({
-            "level:": "INFO",
-            "event": "view-course-details",
-            "http.method": request.method,
-            "http.url": request.url,
-            "user.ip": request.remote_addr,
-            "course.code": course['code'],
-            "course.name": course['name']
-            }, indent=4))
-        span.set_attribute("http.method", request.method)
-        span.set_attribute("http.url", request.url)
-        span.set_attribute("user.ip", request.remote_addr)
-        span.set_attribute("course.code", course['code'])
-        span.set_attribute("course.name", course['name'])
-        span.set_status(Status(StatusCode.OK, f"Course found with code '{code}'"))
-        return render_template('course_details.html', course=course)
+    courses = load_courses()
+    course = next((course for course in courses if course['code'] == code), None)
+    if not course:
+        flash(f"No course found with code '{code}'.", "error")
+        log_request("error", "view-course-details-error", f"No course found with code '{code}'.")
+        add_trace_context("view-course-details", course_code=code, error_message=f"No course found with code '{code}'.")
+        return redirect(url_for('course_catalog'))
+    log_request("info", "view-course-details", f"Course with code '{code}' viewed successfully")
+    add_trace_context("view-course-details", course_code=code)
+    return render_template('course_details.html', course=course)
 
 @app.route('/contact')
 def contact():
-    logger.info(json.dumps({
-        "level:": "INFO",
-        "event": "render-contact",
-        "http.method": request.method,
-        "http.url": request.url,
-        "user.ip": request.remote_addr
-        }, indent=4))
-    with tracer.start_as_current_span("render-contact", kind=SpanKind.SERVER) as span:
-        span.set_attribute("http.method", request.method)
-        span.set_attribute("http.url", request.url)
-        span.set_attribute("user.ip", request.remote_addr)
-        start_time = time.time()
-        response = render_template('contact.html')
-        end_time = time.time()
-        span.set_attribute("processing.time", end_time - start_time)
-        span.set_status(Status(StatusCode.OK, "Contact page rendered successfully"))
-    return response
+    log_request("info", "render-contact", "Contact page rendered successfully")
+    add_trace_context("render-contact")
+    return render_template('contact.html')
 
 @app.route("/manual-trace")
 def manual_trace():
