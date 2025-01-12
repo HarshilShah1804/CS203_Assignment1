@@ -1,10 +1,22 @@
 {% extends "base.html" %}
+
 {% block content %}
-<h2>Course Catalog</h2>
-<ul>
+<h2 class="text-center mb-4">Course Catalog</h2>
+<ul class="list-group list-group-flush">
     {% for course in courses %}
-        <li><a href="{{ url_for('course_details', code=course['code']) }}">{{ course.name }}</a> - {{ course.code }}</li>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            <a href="{{ url_for('course_details', code=course['code']) }}" 
+               class="text-decoration-none text-primary course-link">
+                <strong>{{ course.name }}</strong> - {{ course.code }}
+            </a>
+            <div class="d-inline-flex ms-2">
+                <a href="{{ url_for('course_details', code=course['code']) }}" class="btn btn-primary btn-sm" style="border: none;">View Details</a>
+
+                <form action="{{ url_for('delete_course', code=course['code']) }}" method="POST" class="d-inline ms-1">
+                    <button type="submit" class="btn btn-danger btn-sm" style="border: none;">Delete</button>
+                </form>
+            </div>
+        </li>
     {% endfor %}
 </ul>
 {% endblock %}
-

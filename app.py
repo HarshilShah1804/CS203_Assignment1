@@ -196,6 +196,22 @@ def add_course():
                 span.set_attribute("http.url", request.url)
                 span.set_attribute("user.ip", request.remote_addr)
                 return render_template('add_course.html')
+            
+@app.route('/delete_course/<code>')
+def delete_course(code):
+    courses = load_courses()
+    courses = [course for course in courses if course['code'] != code]
+    with open(COURSE_FILE, 'w') as file:
+        json.dump(courses, file, indent=4)
+    logger.info(json.dumps({
+        "level:": "INFO",
+        "event": "course-deleted",
+        "http.method": request.method,
+        "http.url": request.url,
+        "user.ip": request.remote_addr,
+        "course.code": code
+        }, indent=4))
+    flash(f"Course with code '{code}' deleted successfully!", "success")
 
 
 @app.route('/course/<code>')
