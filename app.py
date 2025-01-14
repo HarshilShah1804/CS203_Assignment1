@@ -1,7 +1,6 @@
 import json
 import os
 import logging
-import time
 from flask import Flask, render_template, request, redirect, url_for, flash
 from opentelemetry import trace
 from opentelemetry.sdk.resources import Resource
@@ -10,12 +9,13 @@ from opentelemetry.sdk.trace.export import BatchSpanProcessor
 from opentelemetry.exporter.jaeger.thrift import JaegerExporter
 from opentelemetry.instrumentation.flask import FlaskInstrumentor
 from opentelemetry.trace import SpanKind
+from logging.handlers import RotatingFileHandler # For rotating logs
 
 # Flask App Initialization
 app = Flask(__name__)
 app.secret_key = 'secret'
-COURSE_FILE = 'course_catalog.json'
-LOG_FILE = 'app_logs.json'
+COURSE_FILE = 'course_catalog.json'  # For fetching course names and details
+LOG_FILE = 'app_log_rotating.json'  # For logging
 
 # OpenTelemetry Setup
 resource = Resource.create({"service.name": "course-catalog-service"})
@@ -29,32 +29,25 @@ span_processor = BatchSpanProcessor(jaeger_exporter)
 trace.get_tracer_provider().add_span_processor(span_processor)
 FlaskInstrumentor().instrument_app(app)
 
-# Custom JSON File Handler
-class JSONFileHandler(logging.FileHandler):
-    def emit(self, record):
-        log_entry = self.format(record)
-        with open(self.baseFilename, 'a') as log_file:
-            log_file.write(log_entry + '\n')
-
 # Logger setup
 log_formatter = logging.Formatter('%(message)s')
-
-# JSON file handler
-json_file_handler = JSONFileHandler(LOG_FILE)
-json_file_handler.setFormatter(log_formatter)
+rotating_file_handler = RotatingFileHandler(    # For saving logs to a rotating logs file
+    LOG_FILE, maxBytes=5 * 1024 * 1024, backupCount=5  # Max Size: 5MB, Backup Count: 5
+)
+rotating_file_handler.setFormatter(log_formatter)
 
 # Stream handler (console)
-stream_handler = logging.StreamHandler()
-stream_handler.setFormatter(log_formatter)
+stream_handler = logging.StreamHandler()  # For getting logs on terminal
+stream_handler.setFormatter(log_formatter) 
 
 # Get the logger
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
-logger.addHandler(json_file_handler)
+logger.addHandler(rotating_file_handler)
 logger.addHandler(stream_handler)
 
-def log_request(level, event, message, code=None):
-    if (level=="info"):
+def log_request(level, event, message):     # Function to log requests based on level, event and message
+    if (level=="info"):   
         logger.info(json.dumps({
             "level:": "INFO",
             "event": event,
@@ -90,7 +83,6 @@ def load_courses():
     with open(COURSE_FILE, 'r') as file:
         return json.load(file)
 
-
 def save_courses(data):
     """Save new course data to the JSON file."""
     courses = load_courses()  # Load existing courses
@@ -100,13 +92,13 @@ def save_courses(data):
 
 def validate_course(data):
     """Validate course data to check if the required fields are empty"""
-    error_fields = ['code', 'name', 'instructor']
+    error_fields = ['code', 'name', 'instructor']   # High Priority Fields without which course cannot be added
     warning_fields = [] 
     for filed in error_fields:
         if not data[filed].strip():
             flash(f"Error: '{filed}' field is required!", "error")
             return False
-    for field in list(data.keys()):
+    for field in list(data.keys()):     # Low Priority Fields which are optional and can be added later.
         if (not data[field].strip()):
             warning_fields.append(field)
     if warning_fields:
@@ -115,7 +107,18 @@ def validate_course(data):
         return "warning"
     return True
 
-def add_trace_context(span_name, load_courses_ = False, course_code = None, error_message = None, warning_message = None):   
+def add_trace_context(span_name, load_courses_ = False, course_code = None, error_message = None, warning_message = None):    
+    """
+    Function to add tracers
+    compulsory parameters:
+        span_name: Name of the span
+
+    Non-compulsory parameters:
+        load_courses_: If the course count is to be logged  (For traces related to course catalog like rendering course catalog page)
+        course_code: Course code to be logged (For traces related to a specific course like adding, deleting, viewing course details)
+        error_message: Error message to be logged  (For traces where an error occurs)
+        warning_message: Warning message to be logged (For traces where a warning occurs)
+    """
     with tracer.start_as_current_span(span_name, kind=SpanKind.SERVER) as span:
         span.set_attribute("http.method", request.method)
         span.set_attribute("http.url", request.url)
@@ -127,7 +130,7 @@ def add_trace_context(span_name, load_courses_ = False, course_code = None, erro
             span.set_attribute("course.code", course_code)
         if error_message:
             span.set_attribute("error.message", error_message)
-            span.set_status(Status(StatusCode.ERROR, error_message))
+            span.set_status(Status(StatusCode.ERROR, error_message))   # Set status to error
         if warning_message:
             span.set_attribute("warning.message", warning_message)
             span.add_event("Potential issue detected", {
@@ -135,12 +138,11 @@ def add_trace_context(span_name, load_courses_ = False, course_code = None, erro
                 "details": "This is a potential issue, but the operation succeeded."
             })
 
-
 # Routes
 @app.route('/')
 def index():
-    log_request("info", "render-index", "Home page rendered successfully")
-    add_trace_context("render-index")
+    log_request("info", "render-index", "Home page rendered successfully")   # Calling the function to log requests
+    add_trace_context("render-index")   # Calling the function to add tracers
     return render_template('index.html')
 
 @app.route('/catalog', methods=['GET', 'POST'])
@@ -149,7 +151,6 @@ def course_catalog():
     add_trace_context("render-course-catalog", load_courses_=True)
     log_request("info", "render-course-catalog", "Course catalog page rendered successfully")
     return render_template('course_catalog.html', courses=courses)
-
 
 @app.route('/add_course', methods=['GET', 'POST'])
 def add_course():
@@ -163,16 +164,16 @@ def add_course():
                 'classroom': request.form['classroom'],
                 'prerequisites': request.form['prerequisites'],
                 'grading': request.form['grading'],
-                'description': request.form['description']
             }
-            validation = validate_course(course)
+            validation = validate_course(course)   # Get the validation of course data: True, False or "warning"
             if (validation == False):
                 log_request("error", "course-add-error", "Required fields are empty")
                 add_trace_context("add-course", course_code=course['code'], error_message="Required fields are empty")
-                return render_template('add_course.html', course=course)
+                return redirect(url_for('course_catalog'))
             elif (validation == "warning"):
                 log_request("warning", "course-add-warning", "Some fields are empty")
                 add_trace_context("add-course", course_code=course['code'], warning_message="Some fields are empty")
+                save_courses(course)
             else:
                 add_trace_context("add-course", course_code=course['code'])
                 save_courses(course)
@@ -180,12 +181,13 @@ def add_course():
             flash(f"Course '{course['name']}' added successfully!", "success")
             return redirect(url_for('course_catalog'))
         else:
+            log_request("info", "render-add-course", "Add course page rendered successfully")
             add_trace_context("render-add-course")
             return render_template('add_course.html')
             
-@app.route('/delete_course/<code>')
+@app.route('/delete_course/<code>')   # Extra: Function to delete a course
 def delete_course(code):
-    print(code)
+    # print(code)
     courses = load_courses()
     courses = [course for course in courses if course['code'] != code]
     with open(COURSE_FILE, 'w') as file:
@@ -194,7 +196,6 @@ def delete_course(code):
     add_trace_context("delete-course", course_code=code)
     flash(f"Course with code '{code}' deleted successfully!", "success")
     return redirect(url_for('course_catalog'))
-
 
 @app.route('/course/<code>')
 def course_details(code):
@@ -229,7 +230,6 @@ def manual_trace():
 def auto_instrumented():
     # Automatically instrumented via FlaskInstrumentor
     return "This route is auto-instrumented!", 200
-
 
 if __name__ == '__main__':
     app.run(debug=True)

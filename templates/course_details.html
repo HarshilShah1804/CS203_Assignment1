@@ -1,3 +1,6 @@
+{% extends "base.html" %}
+
+{% block content %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,7 +14,6 @@
     <p><strong>Classroom:</strong> {{ course.classroom }}</p>
     <p><strong>Prerequisites:</strong> {{ course.prerequisites }}</p>
     <p><strong>Grading:</strong> {{ course.grading }}</p>
-    <p><strong>Description:</strong> {{ course.description }}</p>
-    <a href="{{ url_for('course_catalog') }}">Back to Catalog</a>
 </body>
 </html>
+{% endblock %}

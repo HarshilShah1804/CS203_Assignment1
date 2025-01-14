@@ -20,5 +20,37 @@
         "prerequisites": "Basic Python, Linux",
         "grading": "50% Assignment, 50% Quiz",
         "description": ""
+    },
+    {
+        "code": "ES 335",
+        "name": "Machine Learning",
+        "instructor": "Nipun Batra",
+        "semester": "Spring 2024",
+        "schedule": "Tuesday, Thursday, Friday: 2:00 - 3:30 PM",
+        "classroom": "kubjv",
+        "prerequisites": "Linear Algebra, Probability",
+        "grading": "Assignments = 42 %; Attendance = 6%; Quiz = Best 3 of 4 (54 %)",
+        "description": "Machine Learning"
+    },
+    {
+        "code": "ES 667",
+        "name": "Deep Learning",
+        "instructor": "Anirban Dasgupta",
+        "semester": "Fall 2025",
+        "schedule": "MTW",
+        "classroom": "MS Teams",
+        "prerequisites": "Machine Learning",
+        "grading": "50 % Exams, 25 % Project, 25 % Homework",
+        "description": "Course Content:\r\nCNN\r\nRNN\r\nLSTM\r\nGraph Neural Network"
+    },
+    {
+        "code": "CS 201",
+        "name": "Theory of Computing",
+        "instructor": "Bireswar Das",
+        "semester": "Fall 2025",
+        "schedule": "",
+        "classroom": "",
+        "prerequisites": "",
+        "grading": ""
     }
 ]

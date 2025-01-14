@@ -1,0 +1,992 @@
+{
+    "level:": "INFO",
+    "event": "render-course-catalog",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/catalog",
+    "user.ip": "127.0.0.1",
+    "message": "Course catalog page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-add-course",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/add_course",
+    "user.ip": "127.0.0.1",
+    "message": "Add course page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-add-course",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/add_course",
+    "user.ip": "127.0.0.1",
+    "message": "Add course page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-add-course",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/add_course",
+    "user.ip": "127.0.0.1",
+    "message": "Add course page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-add-course",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/add_course",
+    "user.ip": "127.0.0.1",
+    "message": "Add course page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-add-course",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/add_course",
+    "user.ip": "127.0.0.1",
+    "message": "Add course page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "course-added",
+    "http.method": "POST",
+    "http.url": "http://127.0.0.1:5000/add_course",
+    "user.ip": "127.0.0.1",
+    "message": "Course 'ES 667' 'Deep Learning' added successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-course-catalog",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/catalog",
+    "user.ip": "127.0.0.1",
+    "message": "Course catalog page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "view-course-details",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/course/ES%20667",
+    "user.ip": "127.0.0.1",
+    "message": "Course with code 'ES 667' viewed successfully"
+}
+{
+    "level:": "INFO",
+    "event": "view-course-details",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/course/ES%20667",
+    "user.ip": "127.0.0.1",
+    "message": "Course with code 'ES 667' viewed successfully"
+}
+{
+    "level:": "INFO",
+    "event": "view-course-details",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/course/ES%20667",
+    "user.ip": "127.0.0.1",
+    "message": "Course with code 'ES 667' viewed successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-course-catalog",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/catalog",
+    "user.ip": "127.0.0.1",
+    "message": "Course catalog page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-contact",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/contact",
+    "user.ip": "127.0.0.1",
+    "message": "Contact page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-index",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/",
+    "user.ip": "127.0.0.1",
+    "message": "Home page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-course-catalog",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/catalog",
+    "user.ip": "127.0.0.1",
+    "message": "Course catalog page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-add-course",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/add_course",
+    "user.ip": "127.0.0.1",
+    "message": "Add course page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-index",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/",
+    "user.ip": "127.0.0.1",
+    "message": "Home page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-contact",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/contact",
+    "user.ip": "127.0.0.1",
+    "message": "Contact page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-index",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/",
+    "user.ip": "127.0.0.1",
+    "message": "Home page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-course-catalog",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/catalog",
+    "user.ip": "127.0.0.1",
+    "message": "Course catalog page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "view-course-details",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/course/CS101",
+    "user.ip": "127.0.0.1",
+    "message": "Course with code 'CS101' viewed successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-course-catalog",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/catalog",
+    "user.ip": "127.0.0.1",
+    "message": "Course catalog page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "view-course-details",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/course/CS%20203",
+    "user.ip": "127.0.0.1",
+    "message": "Course with code 'CS 203' viewed successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-course-catalog",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/catalog",
+    "user.ip": "127.0.0.1",
+    "message": "Course catalog page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-contact",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/contact",
+    "user.ip": "127.0.0.1",
+    "message": "Contact page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-index",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/",
+    "user.ip": "127.0.0.1",
+    "message": "Home page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-index",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/",
+    "user.ip": "127.0.0.1",
+    "message": "Home page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-add-course",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/add_course",
+    "user.ip": "127.0.0.1",
+    "message": "Add course page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-add-course",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/add_course",
+    "user.ip": "127.0.0.1",
+    "message": "Add course page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-add-course",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/add_course",
+    "user.ip": "127.0.0.1",
+    "message": "Add course page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-add-course",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/add_course",
+    "user.ip": "127.0.0.1",
+    "message": "Add course page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-add-course",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/add_course",
+    "user.ip": "127.0.0.1",
+    "message": "Add course page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-add-course",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/add_course",
+    "user.ip": "127.0.0.1",
+    "message": "Add course page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-add-course",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/add_course",
+    "user.ip": "127.0.0.1",
+    "message": "Add course page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-add-course",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/add_course",
+    "user.ip": "127.0.0.1",
+    "message": "Add course page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-add-course",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/add_course",
+    "user.ip": "127.0.0.1",
+    "message": "Add course page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-add-course",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/add_course",
+    "user.ip": "127.0.0.1",
+    "message": "Add course page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-add-course",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/add_course",
+    "user.ip": "127.0.0.1",
+    "message": "Add course page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-add-course",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/add_course",
+    "user.ip": "127.0.0.1",
+    "message": "Add course page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-add-course",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/add_course",
+    "user.ip": "127.0.0.1",
+    "message": "Add course page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-add-course",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/add_course",
+    "user.ip": "127.0.0.1",
+    "message": "Add course page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-add-course",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/add_course",
+    "user.ip": "127.0.0.1",
+    "message": "Add course page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-add-course",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/add_course",
+    "user.ip": "127.0.0.1",
+    "message": "Add course page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-add-course",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/add_course",
+    "user.ip": "127.0.0.1",
+    "message": "Add course page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-add-course",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/add_course",
+    "user.ip": "127.0.0.1",
+    "message": "Add course page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-add-course",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/add_course",
+    "user.ip": "127.0.0.1",
+    "message": "Add course page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-add-course",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/add_course",
+    "user.ip": "127.0.0.1",
+    "message": "Add course page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-add-course",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/add_course",
+    "user.ip": "127.0.0.1",
+    "message": "Add course page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-add-course",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/add_course",
+    "user.ip": "127.0.0.1",
+    "message": "Add course page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-add-course",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/add_course",
+    "user.ip": "127.0.0.1",
+    "message": "Add course page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-add-course",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/add_course",
+    "user.ip": "127.0.0.1",
+    "message": "Add course page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-add-course",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/add_course",
+    "user.ip": "127.0.0.1",
+    "message": "Add course page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-add-course",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/add_course",
+    "user.ip": "127.0.0.1",
+    "message": "Add course page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-add-course",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/add_course",
+    "user.ip": "127.0.0.1",
+    "message": "Add course page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-course-catalog",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/catalog",
+    "user.ip": "127.0.0.1",
+    "message": "Course catalog page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-index",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/",
+    "user.ip": "127.0.0.1",
+    "message": "Home page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-add-course",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/add_course",
+    "user.ip": "127.0.0.1",
+    "message": "Add course page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-index",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/",
+    "user.ip": "127.0.0.1",
+    "message": "Home page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-index",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/",
+    "user.ip": "127.0.0.1",
+    "message": "Home page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-course-catalog",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/catalog",
+    "user.ip": "127.0.0.1",
+    "message": "Course catalog page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-index",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/",
+    "user.ip": "127.0.0.1",
+    "message": "Home page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-index",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/",
+    "user.ip": "127.0.0.1",
+    "message": "Home page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-course-catalog",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/catalog",
+    "user.ip": "127.0.0.1",
+    "message": "Course catalog page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-add-course",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/add_course",
+    "user.ip": "127.0.0.1",
+    "message": "Add course page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-contact",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/contact",
+    "user.ip": "127.0.0.1",
+    "message": "Contact page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-index",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/",
+    "user.ip": "127.0.0.1",
+    "message": "Home page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-course-catalog",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/catalog",
+    "user.ip": "127.0.0.1",
+    "message": "Course catalog page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-add-course",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/add_course",
+    "user.ip": "127.0.0.1",
+    "message": "Add course page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-course-catalog",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/catalog",
+    "user.ip": "127.0.0.1",
+    "message": "Course catalog page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-course-catalog",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/catalog",
+    "user.ip": "127.0.0.1",
+    "message": "Course catalog page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-add-course",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/add_course",
+    "user.ip": "127.0.0.1",
+    "message": "Add course page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-course-catalog",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/catalog",
+    "user.ip": "127.0.0.1",
+    "message": "Course catalog page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-course-catalog",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/catalog",
+    "user.ip": "127.0.0.1",
+    "message": "Course catalog page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-add-course",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/add_course",
+    "user.ip": "127.0.0.1",
+    "message": "Add course page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "course-added",
+    "http.method": "POST",
+    "http.url": "http://127.0.0.1:5000/add_course",
+    "user.ip": "127.0.0.1",
+    "message": "Course 'ES 666' 'Computer Vision' added successfully"
+}
+{
+    "level:": "INFO",
+    "event": "course-added",
+    "http.method": "POST",
+    "http.url": "http://127.0.0.1:5000/add_course",
+    "user.ip": "127.0.0.1",
+    "message": "Course 'ES 666' 'Computer Vision' added successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-course-catalog",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/catalog",
+    "user.ip": "127.0.0.1",
+    "message": "Course catalog page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "view-course-details",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/course/ES%20666",
+    "user.ip": "127.0.0.1",
+    "message": "Course with code 'ES 666' viewed successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-course-catalog",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/catalog",
+    "user.ip": "127.0.0.1",
+    "message": "Course catalog page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "view-course-details",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/course/ES%20666",
+    "user.ip": "127.0.0.1",
+    "message": "Course with code 'ES 666' viewed successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-course-catalog",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/catalog",
+    "user.ip": "127.0.0.1",
+    "message": "Course catalog page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "view-course-details",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/course/ES%20666",
+    "user.ip": "127.0.0.1",
+    "message": "Course with code 'ES 666' viewed successfully"
+}
+{
+    "level:": "INFO",
+    "event": "course-deleted",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/delete_course/ES%20666",
+    "user.ip": "127.0.0.1",
+    "message": "Course with code 'ES 666' deleted successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-course-catalog",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/catalog",
+    "user.ip": "127.0.0.1",
+    "message": "Course catalog page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-add-course",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/add_course",
+    "user.ip": "127.0.0.1",
+    "message": "Add course page rendered successfully"
+}
+{
+    "level:": "WARNING",
+    "event": "course-add-warning",
+    "http.method": "POST",
+    "http.url": "http://127.0.0.1:5000/add_course",
+    "user.ip": "127.0.0.1",
+    "message": "Some fields are empty"
+}
+{
+    "level:": "INFO",
+    "event": "course-added",
+    "http.method": "POST",
+    "http.url": "http://127.0.0.1:5000/add_course",
+    "user.ip": "127.0.0.1",
+    "message": "Course 'CS 201' 'Theory of Computing' added successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-course-catalog",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/catalog",
+    "user.ip": "127.0.0.1",
+    "message": "Course catalog page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-course-catalog",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/catalog",
+    "user.ip": "127.0.0.1",
+    "message": "Course catalog page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-add-course",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/add_course",
+    "user.ip": "127.0.0.1",
+    "message": "Add course page rendered successfully"
+}
+{
+    "level:": "WARNING",
+    "event": "course-add-warning",
+    "http.method": "POST",
+    "http.url": "http://127.0.0.1:5000/add_course",
+    "user.ip": "127.0.0.1",
+    "message": "Some fields are empty"
+}
+{
+    "level:": "INFO",
+    "event": "course-added",
+    "http.method": "POST",
+    "http.url": "http://127.0.0.1:5000/add_course",
+    "user.ip": "127.0.0.1",
+    "message": "Course 'CS 201' 'Theory of Computing' added successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-course-catalog",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/catalog",
+    "user.ip": "127.0.0.1",
+    "message": "Course catalog page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-add-course",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/add_course",
+    "user.ip": "127.0.0.1",
+    "message": "Add course page rendered successfully"
+}
+{
+    "level:": "ERROR",
+    "event": "course-add-error",
+    "http.method": "POST",
+    "http.url": "http://127.0.0.1:5000/add_course",
+    "user.ip": "127.0.0.1",
+    "message": "Required fields are empty"
+}
+{
+    "level:": "ERROR",
+    "event": "course-add-error",
+    "http.method": "POST",
+    "http.url": "http://127.0.0.1:5000/add_course",
+    "user.ip": "127.0.0.1",
+    "message": "Required fields are empty"
+}
+{
+    "level:": "ERROR",
+    "event": "course-add-error",
+    "http.method": "POST",
+    "http.url": "http://127.0.0.1:5000/add_course",
+    "user.ip": "127.0.0.1",
+    "message": "Required fields are empty"
+}
+{
+    "level:": "ERROR",
+    "event": "course-add-error",
+    "http.method": "POST",
+    "http.url": "http://127.0.0.1:5000/add_course",
+    "user.ip": "127.0.0.1",
+    "message": "Required fields are empty"
+}
+{
+    "level:": "INFO",
+    "event": "course-added",
+    "http.method": "POST",
+    "http.url": "http://127.0.0.1:5000/add_course",
+    "user.ip": "127.0.0.1",
+    "message": "Course 'PH 201' 'Electrodynamics' added successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-course-catalog",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/catalog",
+    "user.ip": "127.0.0.1",
+    "message": "Course catalog page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-course-catalog",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/catalog",
+    "user.ip": "127.0.0.1",
+    "message": "Course catalog page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-add-course",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/add_course",
+    "user.ip": "127.0.0.1",
+    "message": "Add course page rendered successfully"
+}
+{
+    "level:": "ERROR",
+    "event": "course-add-error",
+    "http.method": "POST",
+    "http.url": "http://127.0.0.1:5000/add_course",
+    "user.ip": "127.0.0.1",
+    "message": "Required fields are empty"
+}
+{
+    "level:": "INFO",
+    "event": "render-course-catalog",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/catalog",
+    "user.ip": "127.0.0.1",
+    "message": "Course catalog page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-course-catalog",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/catalog",
+    "user.ip": "127.0.0.1",
+    "message": "Course catalog page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "view-course-details",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/course/CS101",
+    "user.ip": "127.0.0.1",
+    "message": "Course with code 'CS101' viewed successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-course-catalog",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/catalog",
+    "user.ip": "127.0.0.1",
+    "message": "Course catalog page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-index",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/",
+    "user.ip": "127.0.0.1",
+    "message": "Home page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-course-catalog",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/catalog",
+    "user.ip": "127.0.0.1",
+    "message": "Course catalog page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-add-course",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/add_course",
+    "user.ip": "127.0.0.1",
+    "message": "Add course page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-course-catalog",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/catalog",
+    "user.ip": "127.0.0.1",
+    "message": "Course catalog page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "view-course-details",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/course/CS101",
+    "user.ip": "127.0.0.1",
+    "message": "Course with code 'CS101' viewed successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-course-catalog",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/catalog",
+    "user.ip": "127.0.0.1",
+    "message": "Course catalog page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "view-course-details",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/course/CS%20203",
+    "user.ip": "127.0.0.1",
+    "message": "Course with code 'CS 203' viewed successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-add-course",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/add_course",
+    "user.ip": "127.0.0.1",
+    "message": "Add course page rendered successfully"
+}
+{
+    "level:": "ERROR",
+    "event": "course-add-error",
+    "http.method": "POST",
+    "http.url": "http://127.0.0.1:5000/add_course",
+    "user.ip": "127.0.0.1",
+    "message": "Required fields are empty"
+}
+{
+    "level:": "INFO",
+    "event": "render-course-catalog",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/catalog",
+    "user.ip": "127.0.0.1",
+    "message": "Course catalog page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-add-course",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/add_course",
+    "user.ip": "127.0.0.1",
+    "message": "Add course page rendered successfully"
+}
+{
+    "level:": "WARNING",
+    "event": "course-add-warning",
+    "http.method": "POST",
+    "http.url": "http://127.0.0.1:5000/add_course",
+    "user.ip": "127.0.0.1",
+    "message": "Some fields are empty"
+}
+{
+    "level:": "INFO",
+    "event": "course-added",
+    "http.method": "POST",
+    "http.url": "http://127.0.0.1:5000/add_course",
+    "user.ip": "127.0.0.1",
+    "message": "Course 'ES 112 ' 'Computing' added successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-course-catalog",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/catalog",
+    "user.ip": "127.0.0.1",
+    "message": "Course catalog page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "course-deleted",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/delete_course/ES%20112%20",
+    "user.ip": "127.0.0.1",
+    "message": "Course with code 'ES 112 ' deleted successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-course-catalog",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/catalog",
+    "user.ip": "127.0.0.1",
+    "message": "Course catalog page rendered successfully"
+}
+{
+    "level:": "INFO",
+    "event": "render-index",
+    "http.method": "GET",
+    "http.url": "http://127.0.0.1:5000/",
+    "user.ip": "127.0.0.1",
+    "message": "Home page rendered successfully"
+}
