@@ -94,4 +94,4 @@ docker-compose up
 ![image](https://github.com/user-attachments/assets/b484b6f0-2642-4b2f-af86-ff07e14e1d40)
 
 9. Total requests to a particular route.
-10. ![image](https://github.com/user-attachments/assets/07f6314c-a5a8-484f-a33b-fc3eef1faa01)
+![image](https://github.com/user-attachments/assets/07f6314c-a5a8-484f-a33b-fc3eef1faa01)
